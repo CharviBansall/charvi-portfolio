@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sf-text), -apple-system, BlinkMacSystemFont, system-ui,
+      sans-serif;
+  }
+
+  ::selection {
+    background-color: #c4b5fd;
+    color: #1e1b4b;
+  }
+}
+
+@layer utilities {
+  .bento-grid {
+    @apply grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8
+      gap-3 sm:gap-4 lg:gap-5
+      auto-rows-[minmax(180px,20vh)] md:auto-rows-[minmax(200px,22vh)] lg:auto-rows-[minmax(220px,24vh)];
+  }
+
+  .bento-card {
+    @apply bg-white rounded-2xl p-5 sm:p-6 lg:p-7 overflow-hidden relative;
+  }
+
+  .bento-span-wide {
+    @apply col-span-2 lg:col-span-3 2xl:col-span-4;
+  }
+
+  .bento-span-hero {
+    @apply col-span-2 row-span-2 lg:col-span-3 lg:col-start-1 lg:row-start-1 2xl:col-span-3;
+  }
+
+  /* Two columns — e.g. row 2 cols 5–6 beside quote on lg 6-col grid */
+  .bento-span-pair {
+    @apply col-span-2 lg:col-span-2 2xl:col-span-2;
+  }
+
+  /* Three columns — e.g. row 3 cols 4–6 beside connect on lg 6-col grid */
+  .bento-span-triple {
+    @apply col-span-2 lg:col-span-3 2xl:col-span-3;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+}
+
+@layer components {
+  .nav-pill {
+    @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .modal-content {
+    @apply bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl;
+    animation: modalIn 0.25s ease-out;
+  }
+
+  .chip {
+    @apply text-xs px-3 py-1 rounded-full transition-colors duration-200 cursor-default select-none;
+  }
+
+  .social-link {
+    @apply flex items-center gap-3 text-sm transition-all duration-200
+      px-3 py-2 -mx-3 rounded-xl;
+  }
+
+  .dozy-card {
+    @apply bg-white rounded-3xl border border-neutral-200/60 shadow-sm
+      transition-all duration-300 ease-out
+      hover:shadow-md hover:border-blue-200/60 hover:-translate-y-0.5;
+  }
+
+  .dozy-tag {
+    @apply inline-flex items-center text-[11px] font-semibold uppercase tracking-[0.18em]
+      px-3 py-1 rounded-full bg-dozy-blue-mist text-dozy-navy-mid border border-blue-100;
+  }
+
+  .dozy-gradient {
+    background: linear-gradient(145deg, #0a0c14 0%, #0f1729 35%, #1e3a5f 70%, #2563eb 100%);
+  }
+
+  .dozy-gradient-soft {
+    background: linear-gradient(180deg, #eff6ff 0%, #f5f4f0 100%);
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
