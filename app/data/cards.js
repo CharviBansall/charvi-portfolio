@@ -152,7 +152,7 @@ export const COURSES = [
 ]
 
 export const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com', icon: 'G' },
+  { label: 'GitHub', href: 'https://github.com/CharviBansall', icon: 'G' },
   { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'in' },
   { label: 'Twitter', href: 'https://twitter.com', icon: 'X' },
   { label: 'Email', href: 'mailto:cbansal@umass.edu', icon: '@' },
